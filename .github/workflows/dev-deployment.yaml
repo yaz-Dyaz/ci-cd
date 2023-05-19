@@ -35,6 +35,8 @@ jobs:
           DB_NAME: ci-cd
           DB_USERNAME: postgres
           DB_PASSWORD: password
+          ENVIRONMENT: test
+          SENTRY_DSN: https://2247454ec18e40f9ac09e7dd2651b6fd@o4505210782547968.ingest.sentry.io/4505210803126273
       - name: Migrate database
         run: npx sequelize db:migrate
         env:
@@ -42,6 +44,8 @@ jobs:
           DB_NAME: ci-cd
           DB_USERNAME: postgres
           DB_PASSWORD: password
+          ENVIRONMENT: test
+          SENTRY_DSN: https://2247454ec18e40f9ac09e7dd2651b6fd@o4505210782547968.ingest.sentry.io/4505210803126273
       - name: Run test
         run: npm test
         env:
@@ -50,6 +54,8 @@ jobs:
           DB_USERNAME: postgres
           DB_PASSWORD: password
           JWT_SECRET_KEY: rahasia
+          ENVIRONMENT: test
+          SENTRY_DSN: https://2247454ec18e40f9ac09e7dd2651b6fd@o4505210782547968.ingest.sentry.io/4505210803126273
 
   cd:
     runs-on: ubuntu-latest
