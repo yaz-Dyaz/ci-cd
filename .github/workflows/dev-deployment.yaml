@@ -35,7 +35,6 @@ jobs:
           DB_NAME: ci-cd
           DB_USERNAME: postgres
           DB_PASSWORD: password
-          HTTP_PORT: 5432
       - name: Migrate database
         run: npx sequelize db:migrate
         env:
@@ -43,15 +42,14 @@ jobs:
           DB_NAME: ci-cd
           DB_USERNAME: postgres
           DB_PASSWORD: password
-          HTTP_PORT: 5432
       - name: Run test
-        run: npx jest --verbose
+        run: npm test
         env:
           DB_HOST: localhost
           DB_NAME: ci-cd
           DB_USERNAME: postgres
           DB_PASSWORD: password
-          HTTP_PORT: 5432
+          JWT_SECRET_KEY: rahasia
 
   cd:
     runs-on: ubuntu-latest
